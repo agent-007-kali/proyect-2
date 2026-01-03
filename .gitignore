@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+.next
+out
+build
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env*
+
+# Python
+__pycache__
+*.pyc
+env/
+venv/
+.venv
+
+# System
+.DS_Store
+*.log
+*.pid
+intel.db
+

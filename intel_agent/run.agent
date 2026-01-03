@@ -1,0 +1,30 @@
+# --- ADD THIS EMAIL FUNCTION ---
+def send_email_to_customer(report_text, customer_email):
+    msg = MIMEMultipart()
+    msg['From'] = EMAIL_USER
+    msg['To'] = customer_email
+    msg['Subject'] = "🕵️ Intelligence Alert: Change Detected"
+    msg.attach(MIMEText(report_text, 'plain'))
+    
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(EMAIL_USER, EMAIL_PW)
+            server.send_message(msg)
+        print(f"✅ Email delivered to {customer_email}")
+    except Exception as e:
+        print(f"❌ SMTP Error: {e}")
+
+# --- UPDATE YOUR MAIN LOOP ---
+if current_text.strip() != old_text.strip():
+    print("🚀 Change detected!")
+    
+    # Analyze
+    report = ask_local_ai(prompt)
+    
+    # NEW: Automatically email the report
+    if "AI Error" not in report:
+        send_email_to_customer(report, CUSTOMER_EMAIL)
+        save_new_version(TARGET_URL, current_text)
+    else:
+        print("⚠️ Skipping email due to AI timeout.")

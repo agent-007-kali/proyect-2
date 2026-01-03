@@ -1,0 +1,183 @@
+/home/kali/intel_agent/agent.py:3: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+Traceback (most recent call last):
+  File "/home/kali/intel_agent/agent.py", line 32, in <module>
+    report = analyze_changes(current_content)
+  File "/home/kali/intel_agent/agent.py", line 23, in analyze_changes
+    response = model.generate_content(prompt)
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/home/kali/intel_agent/env/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/home/kali/intel_agent/agent.py", line 33, in <module>
+    old_text = get_last_version()
+  File "/home/kali/intel_agent/agent.py", line 16, in get_last_version
+    cur.execute("SELECT content FROM site_history WHERE url=? ORDER BY timestamp DESC LIMIT 1", (URL,))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: site_history
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected! Analyzing with local AI...
+🤖 Consulting Local Agent (deepseek-r1:8b)...
+
+--- 🕵️ INTELLIGENCE REPORT ---
+
+AI Error: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=300)
+
+✅ Update saved to database.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the old and new versions of the website:
+
+1. **Updated product information**: The prices of the products have changed, with the most expensive item now listed at $1310.39 instead of $581.99.
+2. **Changes in product descriptions**: The product descriptions for the same items have been updated to include more details, such as the specifications and features of each device.
+3. **Increased number of reviews**: Some products now have more reviews than they did in the old version, including a 10-review item that didn't exist before.
+4. **Updated prices for similar products**: The prices of similar products (e.g., Asus VivoBook) have changed, with some items now listed at lower prices ($454.62 instead of $468.56).
+5. **No changes to layout or navigation**: The overall layout and navigation of the website appear to be the same, with the same sections and sub-sections organized in a similar way.
+6. **Minor changes in wording**: Some minor changes have been made to the text on the website, including changes to grammar, punctuation, and capitalization.
+
+Overall, it appears that the main purpose of updating the website was to provide more accurate and up-to-date product information.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the OLD and NEW versions of the website:
+
+1. **Changes in Top Items**: The top items being scraped right now have changed from Dell Latitude 5480, Acer Aspire ES1-572 Black, to Asus ROG Strix GL702VM-GC146T at $1399, MSI GS63 7RD Stealth at $1179, and Dell Vostro 15 (3568) Red at $497.17.
+
+2. **No changes in Navigation Menu**: The navigation menu has remained the same, with options such as "Web Scraper", "Cloud Scraper", "Pricing", "Learn", "Documentation", "Test Sites", "Forum", and "Install".
+
+3. **Changes in Product Listings**: All product listings have been updated to display new prices and product descriptions.
+
+4. **No changes in Resources or Services**: The resources and services section, including the blog, video tutorials, screenshots, test sites, and forum, has remained the same.
+
+5. **No changes in Contact Information**: The contact information, including the email address and physical location, remains the same.
+
+6. **Updated Copyright Notice**: The copyright notice at the bottom of the website has been updated from 2025 to 2026.
+
+Overall, it appears that only minor updates have been made to the website's content, with a focus on changing the top items being scraped right now and updating product listings.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the old and new versions of the website:
+
+1. Updated product information:
+	* The Lenovo Legion Y720 replaced the Asus ROG Strix GL702VM-GC146T.
+	* The Asus ROG Strix GL702ZC-GC209T replaced the previous Asus model.
+	* The ThinkPad Yoga is a new addition to the top-scraped items list.
+2. Updated pricing:
+	* The Lenovo Legion Y720 has a higher price point than the previous Asus model ($1769 vs $1399).
+	* The ThinkPad Yoga has a lower price point than the original Dell Vostro 15 (although the exact price is not mentioned in this comparison).
+3. No changes to the layout or navigation menu.
+4. No changes to the "Learn", "Documentation", and "Resources" sections.
+5. No changes to the "Test Sites" section.
+6. The copyright date remains the same (2026).
+
+Overall, it appears that the website has been updated with new product information, pricing, and a slight reorganization of the content.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the old and new versions of the website:
+
+1. **Items on Top**: The top items being scraped have changed from Lenovo Legion Y720 to Acer Iconia, Asus ASUSPRO B9440UA-GV0279R, and Dell Inspiron 15.
+2. **Prices**: The prices listed for each item are now lower, ranging from $96.99 to $1381.13 (compared to the original prices of $1399, $1769, and $1223.99).
+3. **Reviews**: The number of reviews for each item has changed, with some items now having 7 reviews (up from 2 or 8) and others still having fewer reviews.
+4. **Product Images**: The images accompanying the products have changed, with new ones showing the Acer Iconia and Asus ASUSPRO B9440UA-GV0279R in different configurations.
+5. **No Changes to Other Sections**: All other sections of the website, including pricing pages, product descriptions, documentation, video tutorials, test sites, forum, installation instructions, cloud login, and media kit, appear to be unchanged.
+
+Overall, it seems that the changes made were mainly related to updating the products listed on the top-selling items page.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the old and new versions of the website:
+
+1. **Updated product listings**: The old version listed Acer Iconia with a $96.99 price tag, while the new version lists Dell Latitude 5480 with a $1133.82 price tag.
+2. **New products added**: The new version includes Dell Latitude 5480, Galaxy Tab 4, and MSI GL62M 7REX2, which were not present in the old version.
+3. **Updated product details**: Some product descriptions have been updated or removed, such as the Android operating system for Acer Iconia.
+4. **No changes to navigation menu**: The main navigation menu items remain the same, including "Web Scraper", "Cloud Scraper", "Pricing", and "Learn".
+5. **Same content in different sections**: Some sections, like "Products" and "Company", have the same content in both versions.
+6. **Minor changes to formatting**: The layout of some pages has been updated or reformatted.
+
+Overall, the new version appears to be a reorganization or refresh of the old content, with some new products added and minor updates to the design.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the OLD and NEW versions of the website:
+
+1. **Updated prices**: The new version has updated prices for the top items being scraped, with a difference of $400-$600.
+2. **New products**: The new version adds three new products: ProBook, Dell Inspiron 15, and Asus VivoBook Pro 15.
+3. **Number of reviews**: Some products have more or fewer reviews in the new version compared to the old one.
+4. **Minor changes to product descriptions**: There are minor changes to the product descriptions, but no significant changes to their content.
+5. **Updated copyright date**: The new version has an updated copyright date (2026) instead of 2023.
+6. **No other noticeable changes**: There are no other noticeable changes in terms of layout, design, or functionality between the old and new versions.
+
+Overall, it seems like the website has been updated with new products and prices, but without any significant changes to its overall structure or content.
+✅ Email sent.
+🔍 Checking https://webscraper.io/test-sites/e-commerce/allinone...
+🚀 Change detected!
+🤖 Consulting Local Agent (llama3.2:3b)...
+
+AI REPORT:
+Here are the main changes between the old and new versions of the website:
+
+1. **Updated prices**: The prices for the top items being scraped have been updated from $739.99, $1098.42, and $1235.49 to $99.99, $1337.28, and $1769.
+2. **New product listings**: New products have been added, such as the Asus ROG Strix GL702ZC-GC209T laptop ($1769) and the Dell Latitude 5580 laptop ($1337.28).
+3. **Minor updates to existing products**: The descriptions of the existing products have been updated or expanded.
+4. **No changes to layout or navigation**: The overall structure and organization of the website, including the categories (e.g., Web Scraper browser extension, Cloud Scraper) and pages (e.g., Test Sites, Forum), appear to be the same as in the old version.
+
+Overall, it seems that the new version of the website has updated its product listings with new items and revised existing ones, while maintaining the same layout and navigation structure.
+✅ Email sent.

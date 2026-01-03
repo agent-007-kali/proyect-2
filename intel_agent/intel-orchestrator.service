@@ -1,0 +1,18 @@
+[Unit]
+Description=Intelligence Agent Orchestrator Service
+After=network.target
+
+[Service]
+Type=forking
+User=kali
+Group=kali
+WorkingDirectory=/home/kali/Desktop/saas website with agentic competitor spy/intel_agent
+ExecStart=/home/kali/Desktop/saas website with agentic competitor spy/intel_agent/start-orchestrator.sh --yes
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/kali/Desktop/saas website with agentic competitor spy/intel_agent/orchestrator.log
+StandardError=append:/home/kali/Desktop/saas website with agentic competitor spy/intel_agent/orchestrator.log
+PIDFile=/home/kali/Desktop/saas website with agentic competitor spy/intel_agent/orchestrator.pid
+
+[Install]
+WantedBy=multi-user.target
