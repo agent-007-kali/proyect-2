@@ -48,7 +48,10 @@ export async function POST(request: NextRequest) {
     try {
       const ollamaResponse = await fetch(OLLAMA_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true'
+        },
         body: JSON.stringify({
           model: OLLAMA_MODEL,
           prompt: `You are a competitive intelligence analyst. Below is text from a competitor's website. 
@@ -62,6 +65,8 @@ ${textContent}`,
       });
 
       if (!ollamaResponse.ok) {
+        const errorText = await ollamaResponse.text();
+        console.error('Ollama API Error Response:', errorText);
         throw new Error(`Ollama error! status: ${ollamaResponse.status}`);
       }
 
@@ -75,8 +80,11 @@ ${textContent}`,
         timestamp: new Date().toISOString()
       });
     } catch (aiError: any) {
-      console.error('AI error:', aiError);
-      return NextResponse.json({ error: 'AI Analysis engine is currently busy or unavailable.' }, { status: 503 });
+      console.error('AI error detail:', aiError);
+      return NextResponse.json({ 
+        error: 'AI Analysis engine is currently busy or unavailable.',
+        debug: process.env.NODE_ENV === 'development' ? aiError.message : undefined 
+      }, { status: 503 });
     }
 
   } catch (error: any) {
